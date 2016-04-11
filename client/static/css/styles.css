@@ -1,0 +1,55 @@
+body {
+    background-color: FloralWhite;
+    font-family: verdana;
+    padding: 10px;
+    width: 80%;
+}
+#variable {
+    margin: auto
+    width: 50%;
+    border-style: solid;
+    padding: 5px;
+    display: block;
+}
+#login {
+    margin: auto
+    width: 30%;
+    border-style: solid;
+    padding: 5px;
+    display: block;
+}
+#Add {
+    float: left;
+}
+#filter {
+    float: right;
+}
+#logout {
+    float: right;
+}
+
+.labeledForm * {
+    vertical-align: top;
+}
+
+.label {
+    display: inline-block;
+    width: 100px;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+}
+th {text-align: left;
+    padding-left: 10px;
+}
+td {
+    padding: 10px;
+}
+tr.d0 td {
+    background-color: #808080; color: black;
+}
+tr.d1 td {
+    background-color: #D3D3D3; color: black;
+}

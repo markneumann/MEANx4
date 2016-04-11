@@ -1,0 +1,32 @@
+<div ng-controller='PollController'>
+    <div>
+        <h3><a href='#/dashboard'>Home</a> |
+        <a href='#/question'>Add a Question</a>
+        <a id= 'logout' href='' ng-controller='UserController' ng-click='logout()'>Logout</a></h3>
+    </div>
+
+    <div id='errorArea'>
+        <h2>
+            {{errorArea.errmsg}}
+        </h2>
+    </div>
+
+        <h3>{{question.theQuestion}}</h3>
+        <p> {{question.description}}</p>
+        {{question._id}}
+
+            <h2 {{loggedIn}}, please enter your answer below</h2>
+                <form>
+                    <form name='newq'>
+                        Your Answer: <br>
+                        <textarea name='newp' rows ='4' cols='50' ng-model='new_p.comment'></textarea><br>
+                        Supporting details for your answer (optional):<br>
+                        <textarea name='newp'  rows ='4' cols='50' ng-model='new_p.details'></textarea><br>
+                        <input type='submit' ng-click="new_poll(question._id)" value = 'Answer'>
+                        <input type='submit' value='Cancel' ng-click="new_q = {}">
+
+                    </form>
+                <form>
+            <br>
+        <div >
+</div>
