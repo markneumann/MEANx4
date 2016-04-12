@@ -27,9 +27,8 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
         //simply pass in the entire object
         AppointmentFactory.create(new_appointment, function(theOutput) {
             console.log('returned appointment', theOutput);
+            $location.path('/dashboard');
         });
-        console.log('AFTER appointment answer create, the output is ', theOutput);
-        $location.path('/dashboard/');
     };
     //
 
