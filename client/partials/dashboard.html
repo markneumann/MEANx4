@@ -21,7 +21,7 @@
             <td style="width: 25%">{{appointment.name}}</td>
             <td>{{appointment.complaint}}
                 <input type = 'submit' value = 'Cancel' ng-click= 'cancel_appointment(appointment)'
-                ng-if='appointment.name == loggedIn ||
+                ng-if='appointment.name == loggedIn &&
                         (appointment.apptDate | date)
                         > (now | date ) '>
             </td>
