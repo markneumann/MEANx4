@@ -28,24 +28,24 @@ If you are having trouble uploading files on the Exam App, please DO NOT unlock 
 # Design
 
 ## Partials
-* Login prompt
-* Dashboard
+* Login prompt  DRAFT
+* Dashboard   Need to strip out the time and date
 * New appointment<br>
     calendar picker?<br>
     need area for error messages
 
 ## Client controllers
-* users_controller DONE<br>
+* users_controller ALL DONE<br>
 ** login<br>
 ** logout<br>
 ** getUser<br>
 
 * dashboard_controller DRAFT<br>
 ** index DONE<br>
-** cancel/remove<br>
+** cancel/remove  DONE<br>
 
 * appointment_controller DRAFT<br>
-** new_appointment<br>
+** new_appointment  DRAFT<br>
     Merge date and time fields
 
 
@@ -53,9 +53,9 @@ If you are having trouble uploading files on the Exam App, please DO NOT unlock 
 * user_factory  DONE<br>
 ** new_user <br>
 * appointment_factory  STARTED<br>
-** index   DRAFT<br>
-** new_appointment<br>
-** cancel_appointment<br>
+** index   DONE <br>
+** new_appointment DONE<br>
+** cancel_appointment DONE<br>
 
 ## Server routes & controllers
 * POST users login  DONE
@@ -64,13 +64,12 @@ If you are having trouble uploading files on the Exam App, please DO NOT unlock 
 * GET remove appointment  
 
 ## Models
-* User  disconnected<br>
+* User  DONE<br>
 ** unique<br>
 ** required<br>
-** more than 3 characters?<br>
 ** create date<br>
 
 * Appointment  STARTED, NEEDS Date work <br>
 ** Date/Time must be unique (would be nice to only show available times)<br>
-** Patient Name<br>
-** Complaint<br>
+** Patient Name DONE<br>
+** Complaint DONE<br>

@@ -13,8 +13,11 @@
     <table>
         <tr><th>Date</th><th>Time</th><th>Patient Name</th><th>complaint</th></tr>
         <tr ng-repeat="appointment in appointments | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
-            <td style="width: 15%">{{appointment.apptDate}}</td>
-            <td style="width: 15%">Strip out the time</td>
+            <td style="width: 15%">
+                {{appointment.apptDate | date}}
+            </td>
+            <td style="width: 15%">{{appointment.apptDate |
+                date:'HH:mm'}}</td>
             <td style="width: 25%">{{appointment.name}}</td>
             <td>{{appointment.complaint}}
                 <input type = 'submit' value = 'Cancel' ng-click= 'cancel_appointment(appointment)' ng-if='appointment.name == loggedIn'>

@@ -3,7 +3,9 @@ console.log('loading appointment_controller');         ///////
 MEANModule.controller('AppointmentController', function($scope, $routeParams, $location, AppointmentFactory, UserFactory) {      /////
     // When called from appointmentresults, show the question and all the answers.
     $scope.errorArea = {};
-
+    $scope.apptDate = {
+        value: new Date()
+    };
     $scope.loggedIn = UserFactory.getUser().name;
     console.log('$scope.loggedIn = ', $scope.loggedIn);
 
@@ -15,11 +17,10 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
     $scope.new_appointment = function() {
         var currentUser = UserFactory.getUser().name;
         console.log('user = ', currentUser);
-        console.log('new_appointment event', $scope.new_p);
+        console.log('new_appointment event', $scope.new_appt);
         var new_appointment = {
             name : currentUser,
-            date: $scope.new_appt.theDay,
-            time: $scope.new_appt.theTime,
+            date: $scope.new_appt.apptDate,
             complaint: $scope.new_appt.complaint
         };
         console.log('new_appointment = ', new_appointment);

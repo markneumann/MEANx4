@@ -24,7 +24,7 @@ module.exports = (function() {
             console.log("--> new appointment - body =", req.body);
             var newAppointment = new Appointment({
                 name: req.body.name,
-                apptDate: Date.now(),
+                apptDate: req.body.date,
                 complaint: req.body.complaint,
             });
             newAppointment.save()
