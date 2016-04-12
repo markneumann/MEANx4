@@ -12,24 +12,24 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
 
     //
     // // New appointment record, called from the DashboardController
-    // $scope.new_appointment = function(q_id) {
-    //     var currentUser = UserFactory.getUser().name;
-    //     console.log('user = ', currentUser);
-    //     console.log('new_appointment event', $scope.new_p);
-    //     var new_appointment = {
-    //         name : currentUser,
-    //         date: $scope.new_appt.date,
-    //         time: $scope.new_appt.time,
-    //         complaint: $scope.new_appt.comment
-    //     };
-    //     console.log('new_appointment = ', new_appointment);
-    //     //simply pass in the entire object
-    //     AppointnmentFactory.create(new_appointment, function(theOutput) {
-    //         console.log('returned appointment', theOutput);
-    //     });
-    //     console.log('AFTER appointment answer create, the output is ', theOutput);
-    //     $location.path('/dashboard/');
-    // };
+    $scope.new_appointment = function() {
+        var currentUser = UserFactory.getUser().name;
+        console.log('user = ', currentUser);
+        console.log('new_appointment event', $scope.new_p);
+        var new_appointment = {
+            name : currentUser,
+            date: $scope.new_appt.theDay,
+            time: $scope.new_appt.theTime,
+            complaint: $scope.new_appt.complaint
+        };
+        console.log('new_appointment = ', new_appointment);
+        //simply pass in the entire object
+        AppointmentFactory.create(new_appointment, function(theOutput) {
+            console.log('returned appointment', theOutput);
+        });
+        console.log('AFTER appointment answer create, the output is ', theOutput);
+        $location.path('/dashboard/');
+    };
     //
 
 

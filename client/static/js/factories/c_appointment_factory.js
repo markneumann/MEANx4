@@ -22,30 +22,30 @@ MEANModule.factory('AppointmentFactory', function($http) {
 
 //
 // // create a new appointment instance
-//     factory.create = function(data, callback) {
-//         console.log('the appointment data', data);
-//         $http.post('/appointments', data)
-//             .then(function(output) {
-//                 console.log("post /appointments response: ", output.data);
-//                 callback(output.data);
-//             })
-//             .catch(function(err) {
-//                 console.log("err =", err);
-//             });
-//     };
+    factory.create = function(data, callback) {
+        console.log('the appointment data', data);
+        $http.post('/appointments', data)
+            .then(function(output) {
+                console.log("post /appointments response: ", output.data);
+                callback(output.data);
+            })
+            .catch(function(err) {
+                console.log("err =", err);
+            });
+    };
 //
 //     //called from dashboard controller to cancel the appointment
-//    factory.cancel = function(data, callback) {
-//        console.log("appointment factory.update data:", data);
-//        $http.get('/appointments/cancel/' + data)
-//        .then(function(output) {
-//            console.log("cancel response",output);
-//            callback(output.data);
-//        })
-//        .catch (function(err){
-//            console.log("err =", err );
-//        });
-//    };
+   factory.cancel = function(data, callback) {
+       console.log("appointment factory.cancel data:", data);
+       $http.get('/appointments/cancel/' + data)
+       .then(function(output) {
+           console.log("cancel response",output);
+           callback(output.data);
+       })
+       .catch (function(err){
+           console.log("err =", err );
+       });
+   };
 //
 //
 

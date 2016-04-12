@@ -14,27 +14,13 @@
                 <div class="labeledForm">
                     <label for="question"> Date: &nbsp;
                     </label>
-                    <input type='text' placeholder = " / / ">
+                    <input type='text'
+                           placeholder = " / / "
+                           ng-model ='new_appt.theDay'>
                     Calendar Time:
-                    <select name ='time'>
-                        <option value='0800'> 8:00 AM </option>
-                        <option value='0830'> 8:30 AM </option>
-                        <option value='0900'> 9:00 AM </option>
-                        <option value='0930'> 9:30 AM </option>
-                        <option value='1000'> 10:00 AM </option>
-                        <option value='1030'> 10:30 AM </option>
-                        <option value='1100'> 11:00 AM </option>
-                        <option value='1130'> 11:30 AM </option>
-                        <option value='1200'> 12:00 PM </option>
-                        <option value='1230'> 12:30 PM </option>
-                        <option value='1300'> 1:00 PM </option>
-                        <option value='1330'> 1:30 PM </option>
-                        <option value='1400'> 2:00 PM </option>
-                        <option value='1430'> 2:30 PM </option>
-                        <option value='1500'> 3:00 PM </option>
-                        <option value='1530'> 3:30 PM </option>
-                        <option value='1600'> 4:00 PM </option>
-                        <option value='1630'> 4:30 PM </option>
+                    <input type='text'
+                            placeholder = " 08:00 AM"
+                            ng-model='new_appt.theTime'
                 </div>
                 <div class="labeledForm">
                     <label for="Complaint">Complaint &nbsp;<br>
@@ -43,7 +29,7 @@
                 </div>
                 <br>
                 <div style="float: right;">
-                    <input type='submit' ng-click="addappointment()" value = 'Add Appointment'
+                    <input type='submit' ng-click="new_appointment()" value = 'Add Appointment'
                         style="box-shadow: 5px 5px 3px #888888;">
                     <input type='submit' value='Cancel' ng-click="new_appt = {}"
                         style="box-shadow: 5px 5px 3px #888888;">

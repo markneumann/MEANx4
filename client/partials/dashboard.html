@@ -16,7 +16,9 @@
             <td style="width: 15%">{{appointment.apptDate}}</td>
             <td style="width: 15%">Strip out the time</td>
             <td style="width: 25%">{{appointment.name}}</td>
-            <td>{{appointment.complaint}}</td>
+            <td>{{appointment.complaint}}
+                <input type = 'submit' value = 'Cancel' ng-click= 'cancel_appointment(appointment)' ng-if='appointment.name == loggedIn'>
+            </td>
 
         </tr>
     </table>

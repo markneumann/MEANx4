@@ -12,4 +12,19 @@ MEANModule.controller('DashboardController', function($scope, $location, Appoint
     });
 
 //
+    $scope.cancel_appointment = function(appointments) {
+        var cancelThisAppointment =$scope.appointments.indexOf(appointments);
+        console.log('cancelThisAppointment: ', cancelThisAppointment);
+        console.log('$scope.appointments = ', $scope.appointments);
+        console.log('remove_id: ', $scope.appointments[cancelThisAppointment]._id);
+        if(~cancelThisAppointment){
+            var cancel_id = $scope.appointments[cancelThisAppointment]._id;
+            // note the use of callbacks here
+            AppointmentFactory.cancel(cancel_id, function() {
+                console.log("factory canceled  =", cancelThisAppointment);
+                $location.url('/dashboard');
+            });
+        }
+    };
+
 });

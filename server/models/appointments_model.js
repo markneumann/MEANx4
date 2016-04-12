@@ -6,8 +6,7 @@ var mongoose = require('mongoose');
 var AppointmentSchema = new mongoose.Schema({
     //define schema here
     name: String,
-    apptDate : {type: Date,
-                    min: Date.now },
+    apptDate : {type: Date},
     complaint: { type: String,
                     required: true,
                     minlength: 10},
