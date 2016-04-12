@@ -16,7 +16,7 @@
 3.3 Schedules should only be between 8:00am-5:00pm {pop-up options}
 <b>because I used that angular combo tool for date and time, I need to further explore how to limit the options OR find another tool.</b><br>
 4. User is automatically redirected to the Dashboard after successfully adding a new appointment. The new record should be appended on the table.  <b>DONE</b>
-5. The user can only cancel at least 1 day before the appointment schedule. <b>Would add this additional date test on the client controlling the appearance of the cancel button</b>
+5. The user can only cancel at least 1 day before the appointment schedule. <b>ADDED v4 this additional date test on the client controlling the appearance of the cancel button</b>
 6. Updating of added/deleted appointments on the dashboard after refreshing the page. <b>DONE</b>
 7. You must be able to deploy your work to Amazon EC2 and provide the IP address or subdomain/domain name to where your work has been deployed. Please note that Heroku deployment is not honored. <b>DONE</b>
 
