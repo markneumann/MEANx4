@@ -17,6 +17,7 @@ MEANModule.factory('AppointmentFactory', function($http) {
             })
             .catch(function(err) {
                 console.log("err =", err);
+                callback(err);
             });
     };
 
@@ -30,7 +31,8 @@ MEANModule.factory('AppointmentFactory', function($http) {
                 callback(output.data);
             })
             .catch(function(err) {
-                console.log("err =", err);
+                console.log("err =", err.data.error);
+                callback(err);
             });
     };
 //
@@ -44,6 +46,8 @@ MEANModule.factory('AppointmentFactory', function($http) {
        })
        .catch (function(err){
            console.log("err =", err );
+           callback(err);
+
        });
    };
 //

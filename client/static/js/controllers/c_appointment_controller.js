@@ -4,7 +4,7 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
     // When called from appointmentresults, show the question and all the answers.
     $scope.errorArea = {};
     $scope.apptDate = {
-        value: new Date()
+        value: new Date(2016, 4, 11, 8, 0)
     };
     $scope.loggedIn = UserFactory.getUser().name;
     console.log('$scope.loggedIn = ', $scope.loggedIn);
@@ -25,9 +25,12 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
         };
         console.log('new_appointment = ', new_appointment);
         //simply pass in the entire object
-        AppointmentFactory.create(new_appointment, function(theOutput) {
-            console.log('returned appointment', theOutput);
-            $location.path('/dashboard');
+        AppointmentFactory.create(new_appointment, function(output) {
+            console.log('returned appointment', output.data);
+            // if(!output.data.error){
+                $location.path('/dashboard');
+            // }
+            // forErrors(output);
         });
     };
     //
@@ -38,8 +41,8 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
         console.log('catch --->', output);
         if(output.data.error){  //handle other errors
             //console.log('error = ', output.data.error);
-            console.log('error errmsg = ', output.data.error.errmsg);
-            $scope.errorArea.errmsg = output.data.error.errmsg;
+            console.log('error errmsg = ', output.data.error.errors);
+            $scope.errorArea.errmsg = output.data.error.errors;
         }
         if(output.data.errmsg){   //handle not unique
             console.log('errmsg = ', output.data.errmsg);
