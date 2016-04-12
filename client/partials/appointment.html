@@ -14,14 +14,15 @@
                 <div class="labeledForm">
                     <label for="apptDate"> Date: &nbsp;
                     </label>
-                    <input type="datetime-local" id="apptDate" name="input" ng-model="new_appt.apptDate"
+                    <input style= "font-size: large; font-family: Verdana"
+                        type="datetime-local" id="apptDate" name="input" ng-model="new_appt.apptDate"
                         placeholder="yyyy-MM-ddTHH:mm:ss" min="2016-04-11T08:00:00" max="2017-12-31T17:00:00" required />
                 </div>
-                {{apptDate | date: "yyyy-MM-ddTHH:mm:ss"}}
+                <br>
                 <div class="labeledForm">
                     <label for="Complaint">Complaint &nbsp;<br>
                     </label>
-                     <textarea name='new_appt'  id="complaint" rows ='4' cols='55' ng-model='new_appt.complaint'></textarea><br>
+                     <textarea name='new_appt'  id="complaint" rows ='4' cols='65' ng-model='new_appt.complaint'></textarea><br>
                 </div>
                 <br>
                 <div style="float: right;">
