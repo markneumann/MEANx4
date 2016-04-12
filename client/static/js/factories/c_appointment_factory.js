@@ -5,13 +5,13 @@ MEANModule.factory('AppointmentFactory', function($http) {
 
     var factory = {};
     var appointments = [];
-// return a list of all the polls
+// return a list of all the appointments
     factory.index = function(callback) {
         console.log("factory.index");       ////////////
         // Where do we get access to $http?
         $http.get('/appointments')                 ////////
             .then(function(output) {
-                polls = output.data;                ////////
+                appointments = output.data;                ////////
                 console.log("output =", output.data);
                 callback(appointments);                /////////
             })
@@ -37,7 +37,7 @@ MEANModule.factory('AppointmentFactory', function($http) {
 //     //called from dashboard controller to cancel the appointment
 //    factory.cancel = function(data, callback) {
 //        console.log("appointment factory.update data:", data);
-//        $http.get('/polls/cancel/' + data)
+//        $http.get('/appointments/cancel/' + data)
 //        .then(function(output) {
 //            console.log("cancel response",output);
 //            callback(output.data);

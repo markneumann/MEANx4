@@ -27,7 +27,9 @@ body {
 #logout {
     float: right;
 }
-
+.button {
+    float: right;
+}
 .labeledForm * {
     vertical-align: top;
 }

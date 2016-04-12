@@ -1,0 +1,30 @@
+<!-- dashboard partial -->
+<div ng-controller='DashboardController'>
+
+    <div>
+        <a id= 'logout' href='' ng-controller='UserController' ng-click='logout()'>Logout</a></h3>
+    </div>
+        Welcome: {{loggedIn}} <p>
+    <div id= 'filter'>
+        Search: <input type="text" ng-model="filter_name" placeholder="filter">
+    </div>
+    <br>
+
+    <table>
+        <tr><th>Date</th><th>Time</th><th>Patient Name</th><th>complaint</th></tr>
+        <tr ng-repeat="appointment in appointments | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
+            <td style="width: 15%">{{appointment.apptDate}}</td>
+            <td style="width: 15%">Strip out the time</td>
+            <td style="width: 25%">{{appointment.name}}</td>
+            <td>{{appointment.complaint}}</td>
+
+        </tr>
+    </table>
+
+    <div class="button" >
+        <form action='#/appointment/new'>
+            <input type='submit' value='Add New Appointment'>
+        </form>
+    </div>
+
+</div>

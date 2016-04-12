@@ -11,9 +11,9 @@ MEANModule.config(function($routeProvider){                     /////////////
     .when('/dashboard', {                           // show the appointments
         templateUrl: '/partials/dashboard.html'
     })
-    // .when('/appointment/new', {                    // new appointment
-    //     templateUrl: '/partials/poll.html'
-    // })
+    .when('/appointment/new', {                    // new appointment
+        templateUrl: '/partials/appointment.html'
+    })
     // .when('/appointment/remove/:id', {             // remove the appt
     //     templateUrl: '/partials/pollresults.html'
     // })
