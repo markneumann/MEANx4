@@ -28,7 +28,7 @@ MEANModule.factory('AppointmentFactory', function($http) {
         $http.post('/appointments', data)
             .then(function(output) {
                 console.log("post /appointments response: ", output.data);
-                callback(output.data);
+                callback(output);
             })
             .catch(function(err) {
                 console.log("err =", err.data.error);

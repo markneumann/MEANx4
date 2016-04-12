@@ -27,10 +27,10 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
         //simply pass in the entire object
         AppointmentFactory.create(new_appointment, function(output) {
             console.log('returned appointment', output.data);
-            // if(!output.data.error){
+            if(!output.data.error){
                 $location.path('/dashboard');
-            // }
-            // forErrors(output);
+            }
+            forErrors(output);
         });
     };
     //
