@@ -8,7 +8,7 @@ module.exports = (function() {
     return {
         index:  function(req, res){
             console.log("--> appointments index path");        /////
-            Appointment.find()                                 //////
+            Appointment.find({apptDate:{$gte: Date.now()}}).sort({apptDate: 'asc'})                                 
             .then(function(results){
                 // console.log('results=',results);
                 res.json(results);

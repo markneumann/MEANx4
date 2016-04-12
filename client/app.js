@@ -14,9 +14,6 @@ MEANModule.config(function($routeProvider){                     /////////////
     .when('/appointment/new', {                    // new appointment
         templateUrl: '/partials/appointment.html'
     })
-    // .when('/appointment/remove/:id', {             // remove the appt
-    //     templateUrl: '/partials/pollresults.html'
-    // })
     .otherwise({
         redirectTo: '/'
     });
