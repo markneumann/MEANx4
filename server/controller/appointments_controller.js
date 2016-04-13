@@ -1,4 +1,5 @@
-console.log("loading appointments_controller");             //////
+console.log("loading appointments_controller");
+var moment = require('moment');
 var mongoose = require('mongoose');
 var Appointment = mongoose.model('appointments');                 //////
 var catch_errors = function(err){
@@ -8,7 +9,7 @@ module.exports = (function() {
     return {
         index:  function(req, res){
             console.log("--> appointments index path");        /////
-            Appointment.find({apptDate:{$gte: Date.now()}}).sort({apptDate: 'asc'})                                 
+            Appointment.find({apptDate:{$gte: Date.now()}}).sort({apptDate: 'asc'})
             .then(function(results){
                 // console.log('results=',results);
                 res.json(results);
@@ -27,24 +28,70 @@ module.exports = (function() {
                 apptDate: req.body.date,
                 complaint: req.body.complaint,
             });
-            newAppointment.save()
-            .then(function() {
-                console.log("return 200", newAppointment);
-                newAppointment.save()
-                .then(function() {
-                    console.log("saved new appointment");
-                })
-                .catch (function(err){
-                    console.log("error saving new appointment ",err);
-                });
-                res.status(200); // send back http 200 status if successful
-                res.json(newAppointment);
+            var today = moment().startOf(req.body.date);
+            var tomorrow = moment(today).add(1, 'days');
+            console.log('today, tomorrow = ' +
+                moment(today).format('YYYY-MM-DD') + " " +
+                moment(tomorrow).format('YYYY-MM-DD') );
+            // insert logic to check for < 3 appointments on that day
+            Appointment.count({
+                apptDate: {
+                    $gte: today.toDate(),
+                    $lt:  tomorrow.toDate()
+                }
+            })
+            .then (function(dayCount){
+                console.log('dayCount= ',dayCount);
+                if (dayCount >= 3){
+                    res.status(500); // send back http 200 status if successful
+                    res.json({error: "Cannot exceed 3 appointments per day"});
+                } else {
+                    Appointment.count({
+                        name: req.body.name,
+                        apptDate: {
+                            $gte: today.toDate(),
+                            $lt:  tomorrow.toDate()
+                        }
+                    })
+                    .then (function(userCount){
+                        console.log("userCount =", userCount );
+                        if (userCount >= 1){
+                            res.status(500); // send back http 200 status if successful
+                            res.json({error: "Cannot exceed 1 appointments per person per day"});
+                        } else {
+                            console.log('newAppointment.save ------------->');
+                            newAppointment.save()
+                            .then (function() {
+                                console.log("newAppointment 200", newAppointment);
+                                res.status(200); // send back http 200 status if successful
+                                res.json(newAppointment);
+                            })
+                            .catch (function(err){
+                                console.log('newAppointment error = ',err);
+                                res.status(500); // send back http 200 status if successful
+                                if(err.data.error){
+                                    res.json({error: err.data.error});
+                                }
+                                if (err.data.errmsg) {
+                                    res.json({error: err.data.errmsg});
+                                }
+                            });
+                        }
+                    })      //end new Appointment.save
+                    .catch (function(err){
+                        console.log('count user appts on day error = ',err);
+                        res.status(500); // send back http 200 status if successful
+                        res.json({error: err});
+                    });
+                }
             })
             .catch (function(err){
-                console.log(err);
+                console.log('count appts on day error',err);
                 res.status(500); // send back http 200 status if successful
                 res.json({error: err});
             });
+
+
         },
         //
         cancel:  function(req, res){
