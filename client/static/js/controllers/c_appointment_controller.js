@@ -13,7 +13,7 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
     // show the appointments
 
     //
-    // // New appointment record, called from the DashboardController
+    // // New appointment record, called from the AppointmentController
     $scope.new_appointment = function() {
         var currentUser = UserFactory.getUser().name;
         console.log('user = ', currentUser);
@@ -29,8 +29,9 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
             console.log('returned appointment', output.data);
             if(!output.data.error){
                 $location.path('/dashboard');
+            } else {
+                forErrors(output);
             }
-            forErrors(output);
         });
     };
     //
@@ -39,16 +40,15 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
 //
     function forErrors(output) {
         console.log('catch --->', output);
-        if(output.data.error){  //handle other errors
-            //console.log('error = ', output.data.error);
-            console.log('error errmsg = ', output.data.error.errors);
-            $scope.errorArea.errmsg = output.data.error.errors;
-        }
-        if(output.data.errmsg){   //handle not unique
-            console.log('errmsg = ', output.data.errmsg);
-            $scope.errorArea.errmsg = output.data.error;
-
-        }
+        // if(output.data.error){  //handle other errors
+        //     //console.log('error = ', output.data.error);
+        //     console.log('error errmsg = ', output.data.error);
+        //     $scope.errorArea.errmsg = output.data.error;
+        // }
+        // if(output.data.errmsg){   //handle not unique
+        //     console.log('errmsg = ', output.data.errmsg);
+        $scope.errorArea.errmsg = output.data.error;
+        //}
     }
 //
 });

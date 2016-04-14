@@ -31,7 +31,7 @@ MEANModule.factory('AppointmentFactory', function($http) {
                 callback(output);
             })
             .catch(function(err) {
-                console.log("err =", err.data.error);
+                console.log("err =", err);
                 callback(err);
             });
     };

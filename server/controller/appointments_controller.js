@@ -28,16 +28,16 @@ module.exports = (function() {
                 apptDate: req.body.date,
                 complaint: req.body.complaint,
             });
-            var today = moment().startOf(req.body.date);
-            var tomorrow = moment(today).add(1, 'days');
-            console.log('today, tomorrow = ' +
-                moment(today).format('YYYY-MM-DD') + " " +
-                moment(tomorrow).format('YYYY-MM-DD') );
+            var theDay = moment(req.body.date).startOf('day');
+            var theDayAfter = moment(theDay).add(1, 'days');
+            console.log('theDay, theDayAfter = ' +
+                moment(theDay).format('YYYY-MM-DD') + " " +
+                moment(theDayAfter).format('YYYY-MM-DD') );
             // insert logic to check for < 3 appointments on that day
             Appointment.count({
                 apptDate: {
-                    $gte: today.toDate(),
-                    $lt:  tomorrow.toDate()
+                    $gte: theDay.toDate(),
+                    $lt:  theDayAfter.toDate()
                 }
             })
             .then (function(dayCount){
@@ -49,8 +49,8 @@ module.exports = (function() {
                     Appointment.count({
                         name: req.body.name,
                         apptDate: {
-                            $gte: today.toDate(),
-                            $lt:  tomorrow.toDate()
+                            $gte: theDay.toDate(),
+                            $lt:  theDayAfter.toDate()
                         }
                     })
                     .then (function(userCount){
@@ -69,12 +69,13 @@ module.exports = (function() {
                             .catch (function(err){
                                 console.log('newAppointment error = ',err);
                                 res.status(500); // send back http 200 status if successful
-                                if(err.data.error){
-                                    res.json({error: err.data.error});
-                                }
-                                if (err.data.errmsg) {
-                                    res.json({error: err.data.errmsg});
-                                }
+                                res.json({error: "Complaint must be a minimum 10 characters"});
+                                // if(err.data.error.errors){
+                                //     res.json({error: err.data.error.errors});
+                                // }
+                                // if (err.data.errmsg) {
+                                //     res.json({error: err.data.errmsg});
+                                // }
                             });
                         }
                     })      //end new Appointment.save
