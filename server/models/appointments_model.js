@@ -7,8 +7,8 @@ validators    = require('mongoose-validators');
 
 var AppointmentSchema = new mongoose.Schema({
     //define schema here
-    name: String,
-    apptDate : {type: Date,
+    name: {type: String, required: true},
+    apptDate : {type: Date, required: true, 
         validate: validators.isAfter({message: 'Date must be in future'})
     },
     complaint: { type: String,

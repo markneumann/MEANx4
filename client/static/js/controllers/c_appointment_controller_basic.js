@@ -18,11 +18,11 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
     //
     // // New appointment record, called from the AppointmentController
     $scope.new_appointment = function() {
-        var currentUser = UserFactory.getUser().name;
-        console.log('user = ', currentUser);
+        // var currentUser = UserFactory.getUser().name;
+        console.log('user = ', $scope.loggedIn);
         console.log('new_appointment event', $scope.new_appt);
         var new_appointment = {
-            name : currentUser,
+            name : $scope.loggedIn,
             date: $scope.new_appt.apptDate,
             complaint: $scope.new_appt.complaint
         };

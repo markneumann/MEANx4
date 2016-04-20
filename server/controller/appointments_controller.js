@@ -71,7 +71,7 @@ module.exports = (function() {
                                 res.status(500); // send back http 200 status if successful
                                 //console.log('error: ', err.errors);
                                 for (field in err.errors) {
-                                    console.log(err.errors[field].message);
+                                    console.log('field',field);
                                     var theMessage = err.errors[field].message;
                                 }
                                 res.json({error: theMessage});
