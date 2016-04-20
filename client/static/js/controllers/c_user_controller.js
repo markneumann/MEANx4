@@ -8,12 +8,11 @@ MEANModule.controller('UserController', function($scope, $location, UserFactory)
     $scope.login = function() {
         // note the use of callbacks here
         UserFactory.login($scope.user, function(theOutput) {
-            console.log("user", $scope.user);
+            console.log("user", $scope.user.name);
             console.log('returned user', theOutput.name);
             //console.log($scope);
             $scope.loggedIn = true;
-            $location.url('/dashboard');
-
+            $location.path('/dashboard/' + $scope.user.name);
         });
     };
 

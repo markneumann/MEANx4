@@ -12,31 +12,43 @@
             <form name='new_appt' style="padding: 10px; width: 500px"
                     ng-model='new_appt'>
                 <div class="labeledForm">
-                    <label for="apptDate"> Date: &nbsp;
+                    <label for="question"> Date: &nbsp;
                     </label>
-                    <input style= "font-size: large; font-family: Verdana"
-                        type="datetime-local" id="apptDate" name="input" ng-model="new_appt.apptDate"
-                        placeholder="yyyy-MM-ddTHH:mm:ss" min="2016-04-11T08:00:00" max="2017-12-31T17:00:00" required />
+                    <input type='text' placeholder = " / / ">
+                    Calendar Time:
+                    <select name ='time'>
+                        <option value='8:00 AM'> 8:00 AM </option>
+                        <option value='8:30 AM'> 8:30 AM </option>
+                        <option value='9:00 AM'> 9:00 AM </option>
+                        <option value='9:30 AM'> 9:30 AM </option>
+                        <option value='10:00 AM'> 10:00 AM </option>
+                        <option value='10:30 AM'> 10:30 AM </option>
+                        <option value='11:00 AM'> 11:00 AM </option>
+                        <option value='11:30 AM'> 11:30 AM </option>
+                        <option value='12:00 PM'> 12:00 PM </option>
+                        <option value='12:30 PM'> 12:30 PM </option>
+                        <option value='13:00 PM'> 1:00 PM </option>
+                        <option value='13:30 PM'> 1:30 PM </option>
+                        <option value='14:00 PM'> 2:00 PM </option>
+                        <option value='14:30 PM'> 2:30 PM </option>
+                        <option value='15:00 PM'> 3:00 PM </option>
+                        <option value='15:30 PM'> 3:30 PM </option>
+                        <option value='16:00 PM'> 4:00 PM </option>
+                        <option value='16:30 PM'> 4:30 PM </option>
                 </div>
-                <br>
                 <div class="labeledForm">
                     <label for="Complaint">Complaint &nbsp;<br>
                     </label>
-                     <textarea name='new_appt'  id="complaint" rows ='4' cols='65' ng-model='new_appt.complaint'></textarea><br>
+                     <textarea name='new_appt'  id="complaint" rows ='4' cols='55' ng-model='new_appt.complaint'></textarea><br>
                 </div>
                 <br>
                 <div style="float: right;">
-                    <input type='submit' ng-click="new_appointment()" value = 'Add Appointment'
+                    <input type='submit' ng-click="addappointment()" value = 'Add Appointment'
                         style="box-shadow: 5px 5px 3px #888888;">
                     <input type='submit' value='Cancel' ng-click="new_appt = {}"
                         style="box-shadow: 5px 5px 3px #888888;">
                 </div>
             </form>
-            <br>
-            <br>
-            <div ng-model='errorArea'>
-                {{errorArea.errmsg}}
-            </div>
 
         <br>
 

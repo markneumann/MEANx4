@@ -8,11 +8,11 @@ MEANModule.config(function($routeProvider){                     /////////////
     .when('/', {
         templateUrl: '/partials/login.html'
     })
-    .when('/dashboard', {                           // show the appointments
+    .when('/dashboard/:username', {                           // show the appointments
         templateUrl: '/partials/dashboard.html'
     })
-    .when('/appointment/new', {                    // new appointment
-        templateUrl: '/partials/appointment.html'
+    .when('/appointment/new/:username', {                    // new appointment
+        templateUrl: '/partials/appointmentBasic.html'
     })
     .otherwise({
         redirectTo: '/'

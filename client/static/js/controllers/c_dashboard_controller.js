@@ -5,7 +5,9 @@ function($scope, $location, $route, AppointmentFactory, UserFactory) {
     // This line goes at the top of the controller callback because the minute the controller gets called upon we want to create the $scope.appointments array
     $scope.now = new Date();
     $scope.now.toISOString();
-    $scope.loggedIn = UserFactory.getUser().name;
+    // $scope.loggedIn = UserFactory.getUser().name;
+    console.log('routeparams ', $route.current.params.username);
+    $scope.loggedIn = $route.current.params.username;
     console.log('top of dashboard controller for user ', $scope.loggedIn);
     // Show current Appointments
     AppointmentFactory.index(function(data) {

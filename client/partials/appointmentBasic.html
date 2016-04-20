@@ -1,0 +1,43 @@
+<div ng-controller='AppointmentController'>
+    <div>
+        <h3><a href='{{"#/dashboard/"+loggedIn}}'>Home</a>
+        <a id= 'logout' href='' ng-controller='UserController' ng-click='logout()'>Logout</a></h3>
+    </div>
+
+    <h2>New Appointment</h2>
+    <div >
+
+        <h3 ng-model='new_appt.user'>{{loggedIn}}, please enter your appointment below</h3>
+
+            <form name='new_appt' style="padding: 10px; width: 500px"
+                    ng-model='new_appt'>
+                <div class="labeledForm">
+                    <label for="apptDate"> Date: &nbsp;
+                    </label>
+                    <input style= "font-size: large; font-family: Verdana"
+                        type="datetime-local" id="apptDate" name="input" ng-model="new_appt.apptDate"
+                        placeholder="yyyy-MM-ddTHH:mm:ss" min="2016-04-11T08:00:00" max="2017-12-31T17:00:00" required />
+                </div>
+                <br>
+                <div class="labeledForm">
+                    <label for="Complaint">Complaint &nbsp;<br>
+                    </label>
+                     <textarea name='new_appt'  id="complaint" rows ='4' cols='65' ng-model='new_appt.complaint'></textarea><br>
+                </div>
+                <br>
+                <div style="float: right;">
+                    <input type='submit' ng-click="new_appointment()" value = 'Add Appointment'
+                        style="box-shadow: 5px 5px 3px #888888;">
+                    <input type='submit' value='Cancel' ng-click="new_appt = {}"
+                        style="box-shadow: 5px 5px 3px #888888;">
+                </div>
+            </form>
+            <br>
+            <br>
+            <div ng-model='errorArea'>
+                {{errorArea.errmsg}}
+            </div>
+
+        <br>
+
+</div>

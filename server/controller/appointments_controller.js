@@ -69,7 +69,12 @@ module.exports = (function() {
                             .catch (function(err){
                                 console.log('newAppointment error = ',err);
                                 res.status(500); // send back http 200 status if successful
-                                res.json({error: "Complaint must be a minimum 10 characters"});
+                                //console.log('error: ', err.errors);
+                                for (field in err.errors) {
+                                    console.log(err.errors[field].message);
+                                    var theMessage = err.errors[field].message;
+                                }
+                                res.json({error: theMessage});
                                 // if(err.data.error.errors){
                                 //     res.json({error: err.data.error.errors});
                                 // }

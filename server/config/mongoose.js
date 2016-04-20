@@ -1,5 +1,7 @@
 
 var mongoose      = require('mongoose'),
+
+    validators    = require('mongoose-validators'),
 /*
 *  require file-system so that we can load, read, require all of the model files
 */

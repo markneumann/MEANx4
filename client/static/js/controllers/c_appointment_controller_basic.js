@@ -6,7 +6,10 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
     $scope.apptDate = {
         value: new Date(2016, 4, 11, 8, 0)
     };
-    $scope.loggedIn = UserFactory.getUser().name;
+    // $scope.loggedIn = UserFactory.getUser().name;
+    console.log('routeparams ', $routeParams.username);
+    $scope.loggedIn = $routeParams.username;
+
     console.log('$scope.loggedIn = ', $scope.loggedIn);
 
     console.log('top of AppointnmentController');
@@ -18,12 +21,9 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
         var currentUser = UserFactory.getUser().name;
         console.log('user = ', currentUser);
         console.log('new_appointment event', $scope.new_appt);
-        var dateParts = $scope.new_appt.split('-');
-        var timeParts = $scope.new_appt.split(':');
-        var fullDate = new Date(Date.UTC.apply(undefined,dateParts.concat(timeParts))).toISOString();
         var new_appointment = {
             name : currentUser,
-            date: fullDate,
+            date: $scope.new_appt.apptDate,
             complaint: $scope.new_appt.complaint
         };
         console.log('new_appointment = ', new_appointment);
