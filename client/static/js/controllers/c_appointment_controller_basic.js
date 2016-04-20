@@ -31,7 +31,7 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
         AppointmentFactory.create(new_appointment, function(output) {
             console.log('returned appointment', output.data);
             if(!output.data.error){
-                $location.path('/dashboard');
+                $location.path('/dashboard/' + $scope.loggedIn);
             } else {
                 forErrors(output);
             }

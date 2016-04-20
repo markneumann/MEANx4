@@ -70,9 +70,10 @@ module.exports = (function() {
                                 console.log('newAppointment error = ',err);
                                 res.status(500); // send back http 200 status if successful
                                 //console.log('error: ', err.errors);
-                                for (field in err.errors) {
+                                var theMessage = '';
+                                for (var field in err.errors) {
                                     console.log('field',field);
-                                    var theMessage = err.errors[field].message;
+                                    theMessage = err.errors[field].message;
                                 }
                                 res.json({error: theMessage});
                                 // if(err.data.error.errors){
