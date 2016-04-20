@@ -20,9 +20,9 @@
                 </div>
                 <br>
                 <div class="labeledForm">
-                    <label for="Complaint">Complaint &nbsp;<br>
+                    <label for="Complaint">Complaint: &nbsp;<br>
                     </label>
-                     <textarea name='new_appt'  id="complaint" rows ='4' cols='65' ng-model='new_appt.complaint'></textarea><br>
+                     <textarea name='new_appt'  id="complaint"  ng-model='new_appt.complaint'></textarea><br>
                 </div>
                 <br>
                 <div style="float: right;">
@@ -34,7 +34,7 @@
             </form>
             <br>
             <br>
-            <div ng-model='errorArea'>
+            <div id= 'errorArea' ng-model='errorArea'>
                 {{errorArea.errmsg}}
             </div>
 

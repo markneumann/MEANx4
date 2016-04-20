@@ -27,11 +27,15 @@ body {
 #logout {
     float: right;
 }
+#errorArea {
+    background-color: yellow;
+}
 .button {
     float: right;
 }
 .labeledForm * {
     vertical-align: top;
+    padding-right: 10px;
 }
 
 .label {
@@ -54,4 +58,9 @@ tr.d0 td {
 }
 tr.d1 td {
     background-color: #D3D3D3; color: black;
+}
+textarea {
+    width: 100%;
+    border: 1px solid #333;
+    padding: 4px;
 }
