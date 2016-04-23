@@ -14,5 +14,12 @@ module.exports = function(app){                                    /////////////
 //********** End routes **************
 
 function route404(req, res) {
+    if (req.url.indexOf('favicon.ico') != -1) {
+        // Short-circuit favicon requests
+        // https://gist.github.com/763822
+        res.writeHead(200, {'Content-Type': 'image/x-icon'});
+        res.end();
+        return;
+    }
     console.log("404 error for " + req.url);
 }

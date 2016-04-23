@@ -1,10 +1,10 @@
 console.log('loading appointment_controller');         ///////
 // //
 MEANModule.controller('AppointmentController', function($scope, $routeParams, $location, AppointmentFactory, UserFactory) {      /////
-    // When called from appointmentresults, show the question and all the answers.
+    // intialize everything
     $scope.errorArea = {};
     $scope.apptDate = {
-        value: new Date(2016, 4, 11, 8, 0)
+        value: new Date()
     };
     // $scope.loggedIn = UserFactory.getUser().name;
     console.log('routeparams ', $routeParams.username);

@@ -1,6 +1,7 @@
 console.log('loading app.js');
 // Let's create our angular module
-var MEANModule = angular.module('MEAN_app', ['ngRoute']);       /////////////
+var MEANModule = angular.module('MEAN_app',
+                                ['ngRoute', 'ngMaterial', 'ngMessages']);       /////////////
 
 // the .controller() method adds a controller to the module
 MEANModule.config(function($routeProvider){                     /////////////
@@ -12,7 +13,7 @@ MEANModule.config(function($routeProvider){                     /////////////
         templateUrl: '/partials/dashboard.html'
     })
     .when('/appointment/new/:username', {                    // new appointment
-        templateUrl: '/partials/appointmentBasic.html'
+        templateUrl: '/partials/appointment.html'
     })
     .otherwise({
         redirectTo: '/'
