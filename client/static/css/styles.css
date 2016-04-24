@@ -7,6 +7,7 @@
 }
 #filter {
     float: right;
+    margin-bottom: 4px;
 }
 #logout {
     float: right;
