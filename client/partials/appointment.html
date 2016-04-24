@@ -14,35 +14,37 @@
             <label for="apptDate"> Date: &nbsp;
             </label>
             <md-datepicker class='datepickerdemoBasicUsage'
-                ng-model="myDate"
+                ng-model="myDate"  type="date"
                 md-placeholder="Enter date"
                 md-min-date="minDate" md-max-date="maxDate"
                 md-date-filter="onlyWeekdaysPredicate">
             </md-datepicker>
             <label for="apptTime"> Time: </label>
-            <select name="timeSelect" ng-model="new_appt.time">
-                <option value="08:00 AM">08:00 AM</option>
-                <option value="08:30 AM">08:30 AM</option>
-                <option value="09:00 AM">09:00 AM</option>
-                <option value="09:30 AM">09:30 AM</option>
-                <option value="10:00 AM">10:00 AM</option>
-                <option value="10:30 AM">10:30 AM</option>
-                <option value="11:00 AM">11:00 AM</option>
-                <option value="11:30 AM">11:30 AM</option>
-                <option value="12:00 PM">12:00 PM</option>
-                <option value="12:30 PM">12:30 PM</option>
-                <option value="01:00 PM">01:00 PM</option>
-                <option value="01:30 PM">01:30 PM</option>
-                <option value="02:00 PM">02:00 PM</option>
-                <option value="02:30 PM">02:30 PM</option>
-                <option value="03:00 PM">03:00 PM</option>
-                <option value="03:30 PM">03:30 PM</option>
-                <option value="04:00 PM">04:00 PM</option>
-                <option value="04:30 PM">04:30 PM</option>
+            <select name="timeSelect" ng-model="myTime">
+                <option value="08:30">08:30 AM</option>
+                <option value="08:00">08:00 AM</option>
+                <option value="09:00">09:00 AM</option>
+                <option value="09:30">09:30 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="10:30">10:30 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="11:30">11:30 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="12:30">12:30 PM</option>
+                <option value="13:00">01:00 PM</option>
+                <option value="13:30">01:30 PM</option>
+                <option value="14:00">02:00 PM</option>
+                <option value="14:30">02:30 PM</option>
+                <option value="15:00">03:00 PM</option>
+                <option value="15:30">03:30 PM</option>
+                <option value="16:00">04:00 PM</option>
+                <option value="16:30">04:30 PM</option>
             </select>
             <br>
         </div>
-
+        {{apptDate}}<br>
+        {{myDate}}<br>
+        {{myTime}}
         <br>
         <div class="labeledForm">
             <label for="Complaint">Complaint: &nbsp;<br>

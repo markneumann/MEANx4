@@ -1,25 +1,9 @@
-body {
-    background-color: FloralWhite;
-    font-family: verdana;
-    padding: 10px;
-    width: 80%;
-}
-#variable {
-    margin: auto
-    width: 50%;
-    border-style: solid;
-    padding: 5px;
-    display: block;
-}
 #login {
     margin: auto
     width: 30%;
     border-style: solid;
     padding: 5px;
     display: block;
-}
-#Add {
-    float: left;
 }
 #filter {
     float: right;
@@ -30,10 +14,11 @@ body {
 #errorArea {
     background-color: yellow;
 }
-.button {
-    float: right;
+#appTable {
+    width: 100%;
+    margin: 4px;
+    border: 1px solid black;
 }
-
 .datepickerdemoBasicUsage {
   /** Demo styles for mdCalendar. */ }
   .datepickerdemoBasicUsage md-content {
@@ -42,10 +27,14 @@ body {
     font-size: 12px;
     color: #dd2c00;
     margin: 10px 0 0 25px; }
-table {
-    width: 100%;
-    margin: 4px;
-    border: 1px solid black;
+.button {
+    float: right;
+}
+body {
+    background-color: FloralWhite;
+    font-family: verdana;
+    padding: 10px;
+    width: 80%;
 }
 th {text-align: left;
     padding-left: 10px;

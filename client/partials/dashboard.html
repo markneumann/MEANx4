@@ -10,7 +10,7 @@
     </div>
     <br>
 
-    <table>
+    <table id=appTable>
         <tr><th>Date</th><th>Time</th><th>Patient Name</th><th>complaint</th></tr>
         <tr ng-repeat="appointment in appointments | filter: {name:filter_name}"  ng-class-odd="'d1'" ng-class-even="'d2'">
             <td style="width: 15%">

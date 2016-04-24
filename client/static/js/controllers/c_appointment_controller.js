@@ -10,8 +10,8 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
     $scope.myDate = new Date();
     $scope.minDate = new Date(
       $scope.myDate.getFullYear(),
-      $scope.myDate.getMonth() - 2,
-      $scope.myDate.getDate());
+      $scope.myDate.getMonth(),
+      $scope.myDate.getDate() + 1);
     $scope.maxDate = new Date(
       $scope.myDate.getFullYear(),
       $scope.myDate.getMonth() + 2,
@@ -22,24 +22,32 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
     };
     // $scope.loggedIn = UserFactory.getUser().name;
     // stuck the username in the URL to avoid extra DB lookup
-    console.log('routeparams ', $routeParams.username);
+    // console.log('routeparams ', $routeParams.username);
     $scope.loggedIn = $routeParams.username;
 
     console.log('$scope.loggedIn = ', $scope.loggedIn);
-
-    console.log('top of AppointnmentController');
-    // show the appointments
 
     //
     // // New appointment record, called from the AppointmentController
     $scope.new_appointment = function() {
         // var currentUser = UserFactory.getUser().name;
+        var dateParts = [];
         console.log('user = ', $scope.loggedIn);
-        console.log('new_appointment event', $scope.new_appt);
+        console.log('$scope.myDate = ', $scope.myDate);
+        console.log('$scope.myTime = ', $scope.myTime);
+        // console.log('new_appointment event', $scope.new_appt);
+        var timeParts = $scope.myTime.split(':');
+        $scope.apptDate = new Date(
+            $scope.myDate.getFullYear(),
+            $scope.myDate.getMonth(),
+            $scope.myDate.getDate(),
+            timeParts[0],
+            timeParts[1]
+        );
+        console.log('apptDate = ', $scope.apptDate);
         var new_appointment = {
             name : $scope.loggedIn,
-            date: $scope.new_appt.apptDate,
-            time: $scope.new_appt.apptTime
+            date: $scope.apptDate,
             complaint: $scope.new_appt.complaint
         };
         console.log('new_appointment = ', new_appointment);
@@ -47,7 +55,8 @@ MEANModule.controller('AppointmentController', function($scope, $routeParams, $l
         AppointmentFactory.create(new_appointment, function(output) {
             console.log('returned appointment', output.data);
             if(!output.data.error){
-                $location.path('/dashboard/' + $scope.loggedIn);
+                console.log('temporarily commented out jump back to dashboard');
+                // $location.path('/dashboard/' + $scope.loggedIn);
             } else {
                 forErrors(output);
             }
